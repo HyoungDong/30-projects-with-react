@@ -171,6 +171,7 @@ input:checked + .slider::before {
   font-size: 30px;
   text-align: center;
   display: block;
+  font-family: inherit;
 }
 
 .error-message {
