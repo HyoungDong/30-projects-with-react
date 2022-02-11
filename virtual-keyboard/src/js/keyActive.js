@@ -16,4 +16,21 @@ export default function keyActive() {
   document.addEventListener('keyup', e => {
     keyBoard.querySelector(`[data-code = ${e.code}]`)?.classList.remove('active');
   });
+
+  keyBoard.addEventListener('mousedown', e => {
+    e.target.closest('div.key')?.classList.add('active');
+  });
+
+  document.addEventListener('mouseup', e => {
+    const keyElement = e.target.closest('div.key');
+    const isActive = keyElement?.classList.contains('active');
+    const value = keyElement?.dataset.val;
+    if (isActive && value) {
+      if (value !== 'Space' && value !== 'Backspace') inputElem.value += value;
+      else if (value === 'Space') inputElem.value += ' ';
+      else if (value === 'Backspace') inputElem.value = inputElem.value.slice(0, -1);
+    }
+
+    keyBoard.querySelector('.active').classList.remove('active');
+  });
 }
