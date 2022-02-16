@@ -19,14 +19,11 @@ export default function imageSlider() {
 
 imageSlider.prototype.addEvent = function () {
   this.nextBtnEl.addEventListener('click', this.nextImageEvent.bind(this));
-
   this.prevBtnEl.addEventListener('click', this.prevImageEvent.bind(this));
-
   this.indicatorWrapEl.addEventListener(
     'click',
     this.indicatorEvent.bind(this),
   );
-
   this.controlWrapEl.addEventListener('click', this.togglePlay.bind(this));
 };
 
@@ -45,7 +42,6 @@ imageSlider.prototype.stopAutoSlide = function () {
 imageSlider.prototype.togglePlay = function (e) {
   const status = e.target.dataset.status;
   if (!status) return;
-
   const stat = {
     play: 'pause',
     pause: 'play',
